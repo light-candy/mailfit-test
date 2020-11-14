@@ -1,0 +1,69 @@
+.categories{
+    border-radius:0 0 8px 8px;
+    padding:0 40px;
+
+}
+
+.categories__button{
+    padding:6px 0;
+    background:$card-blue;
+    color:$text-white;
+    border:none;
+    cursor:pointer;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+.categories__button_active{
+    background:$active-dropdown-category-blue;
+    border:none;
+    &:before{
+        @extend .material-icons;
+        content:'\e876';
+        margin-bottom:-2px;
+        font-size:14px;
+    }
+}
+
+
+@media screen and (min-width: $viewport-7){
+.categories{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top:16px;
+    margin-bottom:32px;
+    padding:0;
+
+.categories__button{
+    background:$background-blue;
+    border:1px solid $background-blue;
+    line-height:20px;
+    border-radius:8px;
+    padding:7px 19px;
+    cursor:pointer;
+    &:hover{
+        background:$hover-category-blue;
+        border:1px solid $hover-category-blue;
+    }
+    &:active{
+        background:$hover-category-blue;
+        border:1px solid $hover-category-blue;
+    }
+    &:focus{
+        background:$hover-category-blue;
+        border:1px solid $hover-category-blue;
+    }
+}
+.categories__button_active{
+     background:$active-category-blue;
+     border:1px solid $active-category-blue;
+     &:before{
+         content:none;
+     }
+}
+}
+}
