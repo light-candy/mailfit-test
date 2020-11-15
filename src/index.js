@@ -80,15 +80,17 @@ const filterByCategs = () => {
 
 const cardOpen = () => {
     $('.card__info').hide();
-    $('.card').click(function(){
+    $('.card').click(function(e){
         $(this).children().show();
         $(this).toggleClass('card_open');
+        event.stopPropagation();
     }
     );
-    $('.card__close').click(function(){
+    $('.card__close').click(function(e){
         console.log("hey");
         $(this).closest('.card').toggleClass('card_open');
         $(this).closest('.card__info').hide();
+        e.stopPropagation();
     });
 }
 const dropdownOpen = () => {

@@ -1,0 +1,29 @@
+:root {
+    --swiper-navigation-size:32px !important;
+    --swiper-theme-color:#fff !important;
+}
+.swiper-button-prev, .swiper-button-next {
+    &:after{
+        font-family:'Material Icons Round' !important;
+        font-weight:bold;
+    }
+    &:hover, &:active, &:focus {
+        &:after{
+        padding:5px;
+        box-sizing:border-box;
+        background:$active-slider-blue;
+        border-radius:50%;
+        }
+    }
+}
+
+.swiper-button-next{
+    &:after{
+        content: '\e5cc' !important;
+    }
+}
+.swiper-button-prev{
+    &:after{
+        content: '\e5cb' !important;
+    }
+}

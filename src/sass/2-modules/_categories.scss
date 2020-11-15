@@ -64,12 +64,12 @@
         border:1px solid $hover-category-blue;
     }
     &:active{
-        background:$hover-category-blue;
-        border:1px solid $hover-category-blue;
+        background:$active-category-blue;
+        border:1px solid $active-category-blue;
     }
     &:focus{
-        background:$hover-category-blue;
-        border:1px solid $hover-category-blue;
+        background:$active-category-blue;
+        border:1px solid $active-category-blue;
     }
 }
 .categories__button_active{
