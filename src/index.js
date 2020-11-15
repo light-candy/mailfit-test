@@ -1,11 +1,10 @@
-import 'material-design-icons';
 import './sass/style.scss';
 import $ from 'jquery';
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
 
-const dummyContent = 'Фрайбург-им-Брайсгау – оживленный университетский город в горах Шварцвальд на юго-западе Германии, известный своим умеренным климатом.'
+const dummyContent = 'Фрайбург-им-Брайсгау – оживленный университетский город в горах Шварцвальд на юго-западе Германии, известный своим умеренным климатом и восстановленным после войны средневековым Старым городом.'
 const categories = [
     {country: 'Италия', category: 'italy'},
     {country: 'Германия', category: 'germany'},
@@ -41,10 +40,19 @@ $(".categories__item").after(() => categories.map((o) =>
 $(".swiper-wrapper").html(() => places.map((o) =>
   `<div class="swiper-slide" data-category=${o.category}>
      <div class= "card">
-       <div class="card__cover_${o.cityEng}">
+       <div class="card__cover card__cover_${o.cityEng}">
          <h2 class="card__title">${o.city}</h2>
          <p class="card__category">${o.country}</p>
        </div>
+       <div class="card__info">
+         <button class="card__close">
+           <span class="material-icons">
+             close
+           </span>
+         </button>
+<p>${o.dummyContent}</p>
+<button class="card__button">Подробнее</button>
+</div>
      </div>
    </div>`
 ));
@@ -69,6 +77,27 @@ const filterByCategs = () => {
     return false;
 });
 }
+
+const cardOpen = () => {
+    $('.card__info').hide();
+    $('.card').click(function(){
+        $(this).children().show();
+        $(this).toggleClass('card_open');
+    }
+    );
+    $('.card__close').click(function(){
+        console.log("hey");
+        $(this).closest('.card').toggleClass('card_open');
+        $(this).closest('.card__info').hide();
+    });
+}
+const dropdownOpen = () => {
+    $('.dropdown').click(function(){
+        $('.dropdown').toggleClass('dropdown_open');
+        $('.categories').toggleClass('categories_open');
+    });
+}
+
 const swiper = new Swiper('.swiper-container', {
       slidesPerView: 6,
       slidesPerColumn: 1,
@@ -86,6 +115,8 @@ const swiper = new Swiper('.swiper-container', {
     });
 
 
-$(document).ready(
-filterByCategs()
-);
+$(document).ready(() => {
+filterByCategs();
+cardOpen();
+dropdownOpen();
+});

@@ -1,0 +1,40 @@
+.dropdown{
+    width:calc(100vw - 40px);
+    padding:7px 0 14px 0;
+    position:relative;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+@mixin chevron(){
+     font-size:32px;
+     position:absolute;
+     right:7px;
+     top:4px;
+}
+.dropdown__title {
+    font-weight:500;
+    font-size:16px;
+    line-height:24px;
+    text-align:left;
+    &:after{
+        @include material-icons();
+        content:'\e5cf';
+        @include chevron();
+    }
+}
+.dropdown_open{
+    margin-bottom:0px;
+    .dropdown__title{
+        &:after{
+            @include material-icons();
+            content:'\e5ce';
+            @include chevron();
+        }
+    }
+}
+@media screen and (min-width:$viewport-7){
+    .dropdown{
+        display:none;
+    }
+}

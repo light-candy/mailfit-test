@@ -1,88 +1,24 @@
 
 .card{
     border-radius:8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    width:170px;
     height:250px;
-}
-
-@mixin card-cover($image-cover){
-    padding:20px 12px;
-    filter:drop-shadow(0 4px 30px rgba(0, 0, 0, 0.25));
+    position:relative;
     display:flex;
     flex-direction:column;
-    justify-content:flex-end;
-    align-items:flex-start;
-    font-size:16px;
-    line-height:19.2px;
-    @include retina($image-cover, 2, cover, center center no-repeat);
-
-    .card__title{
-      font-weight:500;
-    }
-    .card__category{
-      font-weight:400;
-    }
+    align-items:center;
 }
-
-.card__cover_milan{
-    @include card-cover('../images/milan.png');
+.card_open{
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index:2;
+    width:calc(100vw - 40px);
+    height:500px;
 }
-.card__cover_freiburg{
-    @include card-cover('../images/freiburg.png')
+.card_open .card__cover{
+    width:100%;
 }
-.card__cover_lissabon{
-    @include card-cover('../images/lissabon.png');
-}
-.card__cover_vicenza{
-    @include card-cover('../images/vicenza.png')
-}
-.card__cover_barselona{
-    @include card-cover('../images/barselona.png');
-}
-.card__cover_portu{
-    @include card-cover('../images/portu.png')
-}
-.card__cover_athenes{
-    @include card-cover('../images/athenes.png');
-}
-.card__cover_kas{
-    @include card-cover('../images/kas.png')
-}
-.card__cover_madrid{
-    @include card-cover('../images/madrid.png');
-}
-.card__cover_berlin{
-    @include card-cover('../images/berlin.png')
-}
-.card__cover_antalia{
-    @include card-cover('../images/antalia.png');
-}
-.card__cover_venice{
-    @include card-cover('../images/venice.png')
-}
-.card__cover_genoa{
-    @include card-cover('../images/genoa.png');
-}
-.card__cover_valencia{
-    @include card-cover('../images/valencia.png')
-}
-.card__cover_saloniki{
-    @include card-cover('../images/saloniki.png');
-}
-.card__cover_guarda{
-    @include card-cover('../images/guarda.png')
-}
-.card__cover_padua{
-    @include card-cover('../images/padua.png');
-}
-.card__cover_istanbul{
-    @include card-cover('../images/istanbul.png')
-}
-
 .card__info{
     background:$card-blue;
-    padding:25px 26px 22px 30px;
+    padding:25px 20px 33px 20px;
     font-weight:400;
     font-size:16px;
     line-height:22.4px;
@@ -90,9 +26,23 @@
     flex-direction:column;
     align-items:flex-start;
     justify-content:space-between;
+    position:relative;
+    width:100%;
+    border-radius:0 0 8px 8px;
+    transform:translateY(-5%);
+    height:300px;
+    .card__close{
+        position:absolute;
+        top:25px;
+        right:16px;
+        border:none;
+        background:transparent;
+        color:$text-white;
+        span {
+            font-size:16px !important;
+        }
+    }
 }
-
-
 .card__button{
     padding:11px 19px;
     font-size:16px;
@@ -100,10 +50,55 @@
     line-height:24px;
     border:2px solid $text-white;
     background:$card-blue;
+    color:$text-white;
+    border-radius:8px;
 
     &:hover, :active, :focus {
      border:2px solid $button-blue;
      background:$button-blue;
     }
 
+}
+
+@media screen and (min-width:$viewport-7){
+    .card{
+        height:317px;
+        flex-direction:row;
+    }
+    .card_open{
+        width:688px;
+        height:317px;
+    }
+    .card_open .card__cover{
+        height:317px;
+        width:216px;
+    }
+    .card__info{
+        padding:36px 26px 27px 21px;
+        min-width:472px;
+        height:100%;
+        border-radius:0 8px 8px 0;
+        transform:translateX(-1%);
+    }
+}
+
+@media screen and (min-width:$viewport-14){
+    .card{
+        height:250px;
+    }
+    .card_open{
+        width:570px;
+        height:250px;
+    }
+    .card_open .card__cover{
+        height:250px;
+        width:170px;
+    }
+    .card__info{
+        padding:25px 26px 22px 30px;
+        min-width:410px;
+      .card__close{
+        display:none;
+    }
+    }
 }

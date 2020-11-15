@@ -11,10 +11,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
           use: ['babel-loader']
         },
         {
-          test: /\.(woff|woff2|png)$/,
+          test: /\.(woff|woff2|eot|ttf|png)$/,
           use: {
             loader: 'url-loader',
           },
+        },
+         {
+          test: /\.(ttf|eot)$/,
+          use: {
+            loader: 'file-loader',
+          }
         },
         {
           test: /\.(scss|css)$/,
