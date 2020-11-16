@@ -1,7 +1,6 @@
 import './sass/style.scss';
 import $ from 'jquery';
 import Swiper, { Navigation, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.min.css';
 
 
 const dummyContent = 'Фрайбург-им-Брайсгау – оживленный университетский город в горах Шварцвальд на юго-западе Германии, известный своим умеренным климатом и восстановленным после войны средневековым Старым городом.'
@@ -120,37 +119,41 @@ const dropdownOpen = () => {
         $('.categories').toggleClass('categories_open');
     });
 }
-
+Swiper.use([Navigation, Pagination]);
 const swiper = new Swiper('.swiper-container', {
       slidesPerView: 2,
       slidesPerColumn: 2,
       loop:false,
+  updateOnWindowResize:true,
       observer:true,
     observeSlideChildren: true,
-      spaceBetween: 20,
       breakpoints: {
           375: {
-              spaceBetween: 20,
               slidesPerView: 2,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+              },
           },
           768: {
-              spaceBetween: 20,
               slidesPerView: 3,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
           },
           1440: {
               spaceBetween: 30,
               slidesPerView: 6,
+              navigation: {
+               nextEl: '.swiper-button-next',
+               prevEl: '.swiper-button-prev',
+               clickable: true,
+             },
           }
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        clickable: true,
-      },
+
+     
 
     });
 
