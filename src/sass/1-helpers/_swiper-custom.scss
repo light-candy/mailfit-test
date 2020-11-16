@@ -18,12 +18,20 @@
 }
 
 .swiper-button-next{
+    right:15px !important;
     &:after{
         content: '\e5cc' !important;
     }
 }
 .swiper-button-prev{
+    left:15px !important;
     &:after{
         content: '\e5cb' !important;
     }
+}
+@media screen and (min-width:$viewport-14){
+.swiper-container{
+    padding-right:76px !important;
+    padding-left:76px !important;
+}
 }

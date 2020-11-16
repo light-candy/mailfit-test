@@ -50,6 +50,10 @@
     padding:0;
     height:auto;
     background:$background-blue;
+    .categories__item{
+        margin-right:10px;
+        margin-bottom:6px;
+    }
 
 .categories__button{
     background:$background-blue;

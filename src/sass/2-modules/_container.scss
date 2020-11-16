@@ -2,12 +2,12 @@
     padding:36px 20px;
 }
 @media screen and (min-width:$viewport-7){
-    container {
+    .container {
       padding:36px 40px;
     }
 }
 @media screen and (min-width:$viewport-14){
-    container {
-      padding:36px 50px;
+    .container {
+      padding:44px 50px;
     }
 }

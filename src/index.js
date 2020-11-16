@@ -37,6 +37,7 @@ const places = [
 $(".categories__item").after(() => categories.map((o) =>
     `<li class="categories__item"><button class="categories__button" data-filter=${o.category}>${o.country}</button></li>`
 ));
+const createPlaces = (places) => {
 $(".swiper-wrapper").html(() => places.map((o) =>
   `<div class="swiper-slide" data-category=${o.category}>
      <div class= "card">
@@ -56,43 +57,63 @@ $(".swiper-wrapper").html(() => places.map((o) =>
      </div>
    </div>`
 ));
+};
 
-const filterByCategs = () => {
-    $('.categories button').click(function(){
-      console.log($(this).attr('data-filter'));
-    $('ul .categories__button_active').removeClass('categories__button_active');
-    $(this).addClass('categories__button_active');
-    const filterCategory = $(this).attr('data-filter');
-    if(filterCategory === 'all') {
-      $('.swiper-wrapper .swiper-slide').show();
-    } else {
-      $('.swiper-wrapper .swiper-slide').each(function(){
-          if($(this).attr("data-category") === filterCategory) {
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
-    }
-    return false;
-});
-}
+createPlaces(places);
+
+
+
 
 const cardOpen = () => {
-    $('.card__info').hide();
+    if ($(window).width() < 1444){
     $('.card').click(function(e){
-        $(this).children().show();
-        $(this).toggleClass('card_open');
+        $(this).closest('.swiper-slide').addClass('swiper_open');
+        $(this).addClass('card_open');
         event.stopPropagation();
     }
     );
     $('.card__close').click(function(e){
-        console.log("hey");
-        $(this).closest('.card').toggleClass('card_open');
-        $(this).closest('.card__info').hide();
+        $(this).closest('.card').removeClass('card_open');
+        $(this).closest('.swiper-slide').removeClass('swiper_open');
+        $(this).closest('.swiper-slide').removeClass('swiper_open-right');
         e.stopPropagation();
     });
+    } else {
+      $('.card').hover(
+        function(e){
+        if (($(window).width() - $(this).offset().left)  > 800){
+            $(this).closest('.swiper-slide').addClass('swiper_open');
+        } else {
+             $(this).closest('.swiper-slide').addClass('swiper_open-right');
+        }
+        $(this).addClass('card_open');
+        event.stopPropagation();
+        },
+        function(e){
+        $(this).closest('.card').removeClass('card_open');
+        $(this).closest('.swiper-slide').removeClass('swiper_open');
+        $(this).closest('.swiper-slide').removeClass('swiper_open-right');
+        e.stopPropagation();
+        });
+    }
 }
+
+const filterCategs = () => {
+    $('.categories button').click(function(){
+        $('ul .categories__button_active').removeClass('categories__button_active');
+        $(this).addClass('categories__button_active');
+        const filterCategory = $(this).attr('data-filter');
+        if (filterCategory === 'all') {
+          createPlaces(places);
+        } else {
+        let placesFiltered = places.filter((o) => o.category === filterCategory);
+        createPlaces(placesFiltered);
+        }
+        cardOpen();
+        return false;
+    });
+};
+
 const dropdownOpen = () => {
     $('.dropdown').click(function(){
         $('.dropdown').toggleClass('dropdown_open');
@@ -101,9 +122,26 @@ const dropdownOpen = () => {
 }
 
 const swiper = new Swiper('.swiper-container', {
-      slidesPerView: 6,
-      slidesPerColumn: 1,
+      slidesPerView: 2,
+      slidesPerColumn: 2,
+      loop:false,
+      observer:true,
+    observeSlideChildren: true,
       spaceBetween: 20,
+      breakpoints: {
+          375: {
+              spaceBetween: 20,
+              slidesPerView: 2,
+          },
+          768: {
+              spaceBetween: 20,
+              slidesPerView: 3,
+          },
+          1440: {
+              spaceBetween: 30,
+              slidesPerView: 6,
+          }
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -118,7 +156,7 @@ const swiper = new Swiper('.swiper-container', {
 
 
 $(document).ready(() => {
-filterByCategs();
+filterCategs();
 cardOpen();
 dropdownOpen();
 });
