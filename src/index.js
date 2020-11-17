@@ -127,6 +127,13 @@ const swiper = new Swiper('.swiper-container', {
   updateOnWindowResize:true,
       observer:true,
     observeSlideChildren: true,
+  on: {
+    slideChange: function(){
+       $('.card').removeClass('card_open');
+       $('.swiper-slide').removeClass('swiper_open');
+       $('.swiper-slide').removeClass('swiper_open-right');
+    }
+  },
       breakpoints: {
           375: {
               slidesPerView: 2,
