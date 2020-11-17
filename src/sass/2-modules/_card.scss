@@ -1,139 +1,142 @@
-
-.card{
-    border-radius:8px;
-    height:250px;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    background:$card-blue;
+.card {
+  border-radius:8px;
+  height:250px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-.card_open{
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    z-index:2;
-    width:calc(100vw - 40px);
-    height:500px;
-    position:fixed;
-    left:0;
-    top:0;
+.card_open {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index:2;
+  width:calc(100vw - 40px);
+  height:580px;
+ }
+.swiper_open-mobile {
+  position:absolute;
+  right:0;
+  bottom:0;
+  top:0;
+  left:0;
+  width:calc(100vw - 40px) !important;
+  margin:0 !important;
 }
-
-.card_open .card__cover{
-    width:100%;
+.card_open .card__cover {
+  width:100%;
 }
-.card_open .card__info{
-    display:flex;
-
+.card_open .card__info {
+  display:flex;
 }
-.card__info{
-    background:$card-blue;
-    padding:25px 20px 33px 20px;
-    font-weight:400;
-    font-size:16px;
-    line-height:22.4px;
-    display:none;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:space-between;
-    position:relative;
-    width:100%;
-    border-radius:0 0 8px 8px;
-    height:300px;
-    animation: open-card-mobile 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    .card__close{
-        position:absolute;
-        top:25px;
-        right:16px;
-        padding:0;
-        border:none;
-        background:transparent;
-        cursor:pointer;
-        color:$text-white;
-        &:hover{
-	        animation:shadow-close 0.6s both;
-            }
-        span {
-            font-size:16px !important;
-        }
-    }
-}
-.card__button{
-    padding:11px 19px;
-    font-size:16px;
-    font-weight:700;
-    line-height:24px;
-    border:2px solid $text-white;
-    background:$card-blue;
-    color:$text-white;
-    border-radius:8px;
+.card__info {
+  background:$card-blue;
+  padding:25px 20px 33px 20px;
+  font-weight:400;
+  font-size:16px;
+  line-height:22.4px;
+  display:none;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+  position:relative;
+  width:100%;
+  border-radius:0 0 8px 8px;
+  height:300px;
+  animation: open-card-mobile 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  .card__close {
+    position:absolute;
+    top:25px;
+    right:16px;
+    padding:0;
+    border:none;
+    background:transparent;
     cursor:pointer;
-
+    color:$text-white;
     &:hover {
-        border:2px solid $button-blue;
-        transition:border 0.8s ease;
-     animation: button-gradient 0.6s ease;
-     background: linear-gradient(to right, $button-blue 0, $button-blue 100%);
+	  animation:shadow-close 0.6s both;
     }
-    &:focus, :active{
-        background:$button-blue;
-        border: 2px solid $button-blue;
+    span {
+      font-size:16px !important;
     }
+  }
+}
+.card__button {
+  padding:11px 19px;
+  font-size:16px;
+  font-weight:700;
+  line-height:24px;
+  border:2px solid $text-white;
+  background:$card-blue;
+  color:$text-white;
+  border-radius:8px;
+  cursor:pointer;
+  &:hover {
+    border:2px solid $button-blue;
+    transition:border 0.8s ease;
+    animation: button-gradient 0.6s ease;
+    background: linear-gradient(to right, $button-blue 0, $button-blue 100%);
+  }
+  &:focus, :active {
+    background:$button-blue;
+    border: 2px solid $button-blue;
+  }
 }
 
-@media screen and (min-width:$viewport-7){
-    .card{
-        height:317px;
-        flex-direction:row;
-    }
-    .card_open{
-        width:688px;
-        height:317px;
-        position:relative;
-    }
-    .swiper_open, .swiper_open-right{
-        justify-content:flex-start;
-    }
-
-    .card_open .card__cover{
-        height:317px;
-        width:216px;
-    }
-    .card__info{
-        padding:36px 26px 27px 21px;
-        min-width:480px;
-        height:100%;
-        border-radius:0 8px 8px 0;
-        animation: open-card 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    }
+@media screen and (min-width:$viewport-7) {
+  .card {
+    height:317px;
+    flex-direction:row;
+  }
+  .card_open {
+    width:688px;
+    height:317px;
+    position:relative;
+  }
+  .swiper_open, .swiper_open-right {
+    justify-content:flex-start;
+  }
+  .card_open .card__cover {
+    height:317px;
+    width:216px;
+  }
+  .card__info {
+    padding:36px 26px 27px 21px;
+    min-width:480px;
+    height:100%;
+    border-radius:0 8px 8px 0;
+    animation: open-card 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
 }
 
-@media screen and (min-width:$viewport-14){
-    .card{
-        height:250px;
+@media screen and (min-width:$viewport-14) {
+  .card {
+    height:250px;
+  }
+  .card_open {
+    width:570px;
+    height:250px;
+  }
+  .swiper_open-right {
+    justify-content:flex-end;
+  }
+  .card_open .card__cover {
+    height:250px;
+    width:170px;
+  }
+  .swiper_open-right .card {
+    flex-direction:row-reverse;
+  }
+  .swiper_open-right .card__info {
+    border-radius: 8px 0 0 8px;
+    animation: open-card-right 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
+  .swiper_open .card__info {
+    animation: open-card 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  }
+  .card__info {
+    padding:25px 26px 22px 30px;
+    min-width:410px;
+    .card__close {
+      display:none;
     }
-    .card_open{
-        width:570px;
-        height:250px;
-    }
-    .swiper_open-right{
-        justify-content:flex-end;
-    }
-    .card_open .card__cover{
-        height:250px;
-        width:170px;
-    }
-    .swiper_open-right .card{
-        flex-direction:row-reverse;
-    }
-    .swiper_open-right .card__info{
-        border-radius: 8px 0 0 8px;
-        animation: open-card-right 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    }
-    .card__info{
-        padding:25px 26px 22px 30px;
-        min-width:410px;
-      .card__close{
-        display:none;
-    }
-    }
+  }
 }

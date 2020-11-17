@@ -6,64 +6,57 @@
 .swiper-button-prev, .swiper-button-next {
     cursor: auto;
     &:after{
-        display:none;
+      display:none;
     }
 }
-@media screen and (min-width: $viewport-14){
-    .swiper-button-prev, .swiper-button-next {
-        cursor: pointer;
-    &:after{
-        font-family:'Material Icons Round';
-        font-weight:bold;
-        display:block;
-    }
-    &:hover{
-        &:after {
-            animation: navigation-ripple 0.4s ease;
-        }
-
-    }
-
-    &:hover, &:focus, &:active {
-        &:after{
-        padding:5px;
-        box-sizing:border-box;
-        background:radial-gradient(circle at center, $active-slider-blue 0, $active-slider-blue 100%);
-        border-radius:50%;
-        }
-    }
+.swiper-button-next {
+  &:after {
+    content: '\e5cc';
+    right:50px;
+    position:fixed;
+  }
 }
+.swiper-button-prev {
+  &:after{
+    content: '\e5cb';
+    left:50px;
+    position:fixed;
+  }
 }
-
-.swiper-button-next{
-    right:15px;
-    &:after{
-        content: '\e5cc';
-    }
-}
-.swiper-button-prev{
-    left:15px;
-    &:after{
-        content: '\e5cb';
-    }
-}
-@media screen and (min-width:$viewport-14){
-.swiper-container{
-    padding-right:76px !important;
-    padding-left:76px !important;
-}
-}
-.swiper-pagination-bullet{
-    opacity:1;
-    background:$text-white;
+.swiper-pagination-bullet {
+  opacity:1;
+  background:$text-white;
 }
 .swiper-pagination-bullet-active {
   background: $active-slider-blue;
 }
-@media screen and (min-width:$viewport-7){
-   .swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-container-horizontal >  .swiper-pagination-bullets{
-        bottom:0;
+@media screen and (min-width:$viewport-7) {
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-container-horizontal >  .swiper-pagination-bullets {
+    bottom:0;
+  }
+}
+@media screen and (min-width: $viewport-14) {
+    .swiper-button-prev, .swiper-button-next {
+      cursor: pointer;
+      &:after {
+        font-family:'Material Icons Round';
+        font-weight:bold;
+        display:block;
+      }
+      &:hover {
+        &:after {
+          animation: navigation-ripple 0.4s ease;
+        }
+      }
+      &:hover, &:focus, &:active {
+        &:after {
+          padding:5px;
+          box-sizing:border-box;
+          background:radial-gradient(circle at center, $active-slider-blue 0, $active-slider-blue 100%);
+          border-radius:50%;
+        }
+      }
     }
 }

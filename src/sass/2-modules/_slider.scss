@@ -1,0 +1,31 @@
+.slider {
+  height:580px;
+}
+.swiper-slide {
+  font-size: 18px;
+  height: calc((100% - 20px) / 2) !important;
+  display:flex;
+  justify-content:center;
+}
+.swiper-wrapper {
+  box-sizing:content-box;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: $viewport-7) {
+  .slider {
+    height:714px;
+  }
+}
+@media screen and (min-width: $viewport-14) {
+  .slider {
+    height:530px;
+  }
+  .swiper-slide {
+    height: calc((100% - 30px) / 2) !important;
+  }
+}

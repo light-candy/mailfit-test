@@ -1,11 +1,11 @@
-.header{
-    font-weight:800;
-    font-size:30px;
-    line-height:33px;
+.header {
+  font-weight:800;
+  font-size:30px;
+  line-height:33px;
 }
-@media screen and (min-width: $viewport-7){
-    .header{
-        font-size:36px;
-        line-height:53px;
-    }
+@media screen and (min-width: $viewport-7) {
+  .header {
+    font-size:36px;
+    line-height:53px;
+  }
 }
