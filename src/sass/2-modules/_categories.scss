@@ -8,6 +8,7 @@
 }
 .categories_open{
     display:block;
+    	animation: open-dropdown 0.2s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
 }
 
 .categories__button{
@@ -27,6 +28,7 @@
     background:$active-dropdown-category-blue;
     border:none;
     position:relative;
+    transition: all 0.2s ease-in;
     &:before{
         @include material-icons();
         content:'\e876';
@@ -34,6 +36,7 @@
         position:absolute;
         left:18px;
         top:10px;
+        transition: all 0.2s ease-in;
     }
 }
 
@@ -66,19 +69,23 @@
     &:hover{
         background:$hover-category-blue;
         border:1px solid $hover-category-blue;
+        transition: all 0.2s ease-in;
     }
     &:active{
         background:$active-category-blue;
         border:1px solid $active-category-blue;
+        transition: all 0.4s ease-in;
     }
     &:focus{
         background:$active-category-blue;
         border:1px solid $active-category-blue;
+        transition: all 0.4s ease-in;
     }
 }
 .categories__button_active{
      background:$active-category-blue;
      border:1px solid $active-category-blue;
+     transition: all 0.4s ease-in;
      &:before{
          content:none;
      }

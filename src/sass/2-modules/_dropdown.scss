@@ -4,6 +4,9 @@
     position:relative;
     margin-bottom:10px;
     cursor:pointer;
+    &:hover{
+        animation: shadow-dropdown 0.6s both;
+    }
 }
 
 @mixin chevron(){

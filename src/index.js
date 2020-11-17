@@ -80,7 +80,7 @@ const cardOpen = () => {
     } else {
       $('.card').hover(
         function(e){
-        if (($(window).width() - $(this).offset().left)  > 800){
+        if (($(window).width() - $(this).offset().left)  > 700){
             $(this).closest('.swiper-slide').addClass('swiper_open');
         } else {
              $(this).closest('.swiper-slide').addClass('swiper_open-right');
@@ -130,6 +130,7 @@ const swiper = new Swiper('.swiper-container', {
       breakpoints: {
           375: {
               slidesPerView: 2,
+            spaceBetween:10,
               pagination: {
                 el: '.swiper-pagination',
                 clickable: true,

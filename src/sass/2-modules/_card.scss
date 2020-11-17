@@ -6,6 +6,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+    background:$card-blue;
 }
 .card_open{
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -22,6 +23,7 @@
 }
 .card_open .card__info{
     display:flex;
+    animation: open-card-mobile 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
 .card__info{
     background:$card-blue;
@@ -36,15 +38,19 @@
     position:relative;
     width:100%;
     border-radius:0 0 8px 8px;
-    transform:translateY(-5%);
     height:300px;
     .card__close{
         position:absolute;
         top:25px;
         right:16px;
+        padding:0;
         border:none;
         background:transparent;
+        cursor:pointer;
         color:$text-white;
+        &:hover{
+	        animation:shadow-close 0.6s both;
+            }
         span {
             font-size:16px !important;
         }
@@ -59,12 +65,18 @@
     background:$card-blue;
     color:$text-white;
     border-radius:8px;
+    cursor:pointer;
 
-    &:hover, :active, :focus {
-     border:2px solid $button-blue;
-     background:$button-blue;
+    &:hover {
+        border:2px solid $button-blue;
+        transition:border 0.8s ease;
+     animation: button-gradient 0.6s ease;
+     background: linear-gradient(to right, $button-blue 0, $button-blue 100%);
     }
-
+    &:focus, :active{
+        background:$button-blue;
+        border: 2px solid $button-blue;
+    }
 }
 
 @media screen and (min-width:$viewport-7){
@@ -90,7 +102,7 @@
         min-width:480px;
         height:100%;
         border-radius:0 8px 8px 0;
-        transform:translateX(-1%);
+        animation: open-card 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     }
 }
 
@@ -114,7 +126,7 @@
     }
     .swiper_open-right .card__info{
         border-radius: 8px 0 0 8px;
-        transform:translateX(1%);
+        animation: open-card-right 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     }
     .card__info{
         padding:25px 26px 22px 30px;
